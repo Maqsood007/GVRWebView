@@ -1,0 +1,53 @@
+apply plugin: 'com.android.application'
+
+
+if (file("../../common.gradle").exists()) {
+    apply from: '../../common.gradle'
+}
+if (file("../../../../VRProjects/common.gradle").exists()) {
+    apply from: '../../../../VRProjects/common.gradle'
+}
+
+allprojects {
+    repositories {
+        jcenter()
+        flatDir {
+            dirs '../../gearvrf-libs'
+        }
+    }
+}
+
+android {
+    compileSdkVersion 24
+    buildToolsVersion "24.0.1"
+    defaultConfig {
+        applicationId "com.maqsood007.gvrwebview"
+        minSdkVersion 19
+        targetSdkVersion 24
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    compile 'com.android.support:appcompat-v7:24.2.1'
+    compile 'com.android.support:support-v4:24.1.1'
+    compile 'com.android.support:support-annotations:24.1.1'
+    compile 'com.github.chrisbanes:PhotoView:1.3.0'
+    compile 'com.github.delight-im:Android-AdvancedWebView:v3.0.0'
+    compile(name: 'framework-debug', ext: 'aar')
+    compile(name: 'google-vr-base', ext: 'aar')
+    compile(name: 'google-vr-common', ext: 'aar')
+    testCompile 'junit:junit:4.12'
+}
