@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="google-vr-base-">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/app/build/intermediates/exploded-aar/google-vr-base/res" />
+      <root url="jar://$PROJECT_DIR$/app/build/intermediates/exploded-aar/google-vr-base/jars/classes.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
